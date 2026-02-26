@@ -1,0 +1,58 @@
+/* css/base/typography.css */
+
+/* Importação Google Fonts (Montserrat + Fredoka) */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: var(--brand-secondary); /* Link agora usa a secundária (ciano/azul claro) */
+    transition: 0.2s;
+}
+
+/* Utilitários de Texto do seu styles.css original */
+.page-subtitle {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--brand-primary);
+    background-color: transparent;
+    margin: 1.5rem 0;
+    font-family: 'Fredoka', sans-serif;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.page-subtitle::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--border-soft);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.accesskey {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: var(--text-secondary);
+    cursor: help;
+}
+
+.text-brand { color: var(--brand-primary) !important; }
+.text-danger { color: var(--status-danger) !important; }
+.text-muted { color: var(--text-secondary) !important; }

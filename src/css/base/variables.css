@@ -1,0 +1,62 @@
+/* css/base/variables.css */
+
+:root {
+    /* ==========================================================
+       1. VETTRYX IDENTITY (Valores "Hardcoded" do seu PDF)
+       Se o cliente não tiver cor, o sistema usa estas.
+       ========================================================== */
+    --vtx-deep-blue: #023047;  /* PDF: Source 1 */
+    --vtx-neon-green: #39E74F; /* PDF: Source 2 */
+    --vtx-ice-white: #F0F8FF;  /* PDF: Source 3 */
+    --vtx-cyan: #00C2FF;       /* PDF: Source 4 */
+    --vtx-slate: #64748B;      /* PDF: Source 6 */
+    --vtx-white: #ffffff;
+    --vtx-black: #121212;
+
+    /* ==========================================================
+       2. VARIÁVEIS SEMÂNTICAS (O que o seu CSS vai usar)
+       Lógica: "Use a cor do Cliente (--cli-). Se não tiver, use Vettryx".
+       ========================================================== */
+    
+    /* --- CORES DE MARCA --- */
+    --brand-primary: var(--cli-primary, var(--vtx-deep-blue));
+    --brand-secondary: var(--cli-secondary, var(--vtx-cyan));
+    --brand-accent: var(--cli-accent, var(--vtx-neon-green));
+    
+    /* --- STATUS (Padronizados) --- */
+    --status-success: var(--vtx-neon-green);
+    --status-warning: #FFEB3B; /* Mantido do seu original */
+    --status-danger: #F44336;  /* Mantido do seu original */
+    --status-info: var(--brand-secondary);
+
+    /* --- TEXTOS --- */
+    --text-primary: var(--cli-text-main, var(--vtx-deep-blue));
+    --text-secondary: var(--cli-text-muted, var(--vtx-slate));
+    --text-inverse: var(--vtx-white);
+
+    /* --- FUNDOS & SUPERFÍCIES --- */
+    --bg-body: var(--cli-bg-body, var(--vtx-ice-white));
+    --bg-card: var(--cli-bg-card, var(--vtx-white));
+    --bg-header: var(--cli-bg-header, var(--vtx-white));
+    --bg-sidebar: var(--cli-bg-sidebar, var(--vtx-deep-blue));
+
+    /* --- BORDAS & EFEITOS --- */
+    --border-soft: #e4e7eb;
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --logo-filter: none;
+}
+
+/* --- TEMA ESCURO (Overrides) --- */
+[data-theme="dark"] {
+    --bg-body: #0a1014;
+    --bg-card: #15202b;
+    --bg-header: #15202b;
+    --text-primary: #e4e7eb;
+    --text-secondary: #a0aec0;
+    --border-soft: #2c3e50;
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    
+    /* No tema escuro, a primária precisa brilhar mais, usamos o Ciano ou a cor do cliente */
+    --brand-primary: var(--cli-dark-primary, var(--vtx-cyan)); 
+    --logo-filter: brightness(0) invert(1);
+}

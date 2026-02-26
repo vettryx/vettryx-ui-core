@@ -1,0 +1,75 @@
+/* css/layout/header.css */
+
+.main-header {
+    background-color: var(--bg-header);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 0.8rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: background-color 0.3s ease;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    flex: 0 0 200px;
+}
+
+.logo {
+    max-height: 45px;
+    width: auto;
+    filter: var(--logo-filter); 
+    transition: filter 0.3s;
+}
+
+.title-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.page-title {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.actions-area {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    flex: 0 0 200px;
+}
+
+.user-profile {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.user-profile a {
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .header-content { flex-direction: column; }
+    .logo-area, .actions-area { flex: auto; width: 100%; justify-content: center; }
+    .title-area { display: none; }
+}

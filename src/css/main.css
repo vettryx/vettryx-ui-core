@@ -1,0 +1,19 @@
+/*css/main.css*/
+
+/* 1. Base */
+@import 'base/variables.css';
+@import 'base/reset.css';
+@import 'base/typography.css';
+
+/* 2. Layout */
+@import 'layout/header.css';
+@import 'layout/footer.css';
+
+/* 3. Pages (Opcional: você pode importar só na página de login se quiser performance) */
+@import 'pages/login.css';
+
+/* 4. Imports Externos */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css');
+
+/* 5. Componentes */
+@import 'components/buttons.css';
