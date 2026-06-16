@@ -1,0 +1,123 @@
+/*
+==============================================================================
+Módulo: KPIs (Indicadores)
+Caminho: src/css/components/kpis.css
+==============================================================================
+*/
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.kpi-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    min-height: 70px;
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--borda-suave);
+    border-left: 5px solid transparent;
+    box-shadow: var(--sombra-card);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform .2s ease;
+}
+
+.kpi-card:hover { transform: translateY(-2px); }
+.kpi-card:active { transform: scale(0.98); }
+
+.kpi-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.kpi-data {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.kpi-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.kpi-value {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.kpi-count {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   CORES (WORKFLOW) - Usando as novas variáveis VETTRYX
+========================================================================== */
+
+/* Aguardando aprovação / Pendente */
+.kpi-aguardando-aprovacao, .kpi-pendente { border-left-color: var(--vtx-amber-500); }
+.kpi-aguardando-aprovacao .kpi-icon, .kpi-pendente .kpi-icon {
+    background-color: var(--vtx-amber-50);
+    color: var(--vtx-amber-600);
+}
+
+/* Aprovado / Concluído / Sucesso */
+.kpi-aprovado, .kpi-concluido, .kpi-sucesso { border-left-color: var(--vtx-neon-green-500); }
+.kpi-aprovado .kpi-icon, .kpi-concluido .kpi-icon, .kpi-sucesso .kpi-icon {
+    background-color: var(--vtx-neon-green-50);
+    color: var(--vtx-neon-green-700);
+}
+
+/* Reprovado / Cancelado / Danger */
+.kpi-reprovado, .kpi-cancelado, .kpi-danger { border-left-color: var(--vtx-red-500); }
+.kpi-reprovado .kpi-icon, .kpi-cancelado .kpi-icon, .kpi-danger .kpi-icon {
+    background-color: var(--vtx-red-50);
+    color: var(--vtx-red-600);
+}
+
+/* Em andamento / Info */
+.kpi-em-andamento, .kpi-info { border-left-color: var(--vtx-cyan-500); }
+.kpi-em-andamento .kpi-icon, .kpi-info .kpi-icon {
+    background-color: var(--vtx-cyan-50);
+    color: var(--vtx-cyan-600);
+}
+
+/* Pagamento Pendente / Atenção */
+.kpi-pagamento-pendente, .kpi-atencao { border-left-color: var(--vtx-orange-500); }
+.kpi-pagamento-pendente .kpi-icon, .kpi-atencao .kpi-icon {
+    background-color: var(--vtx-orange-50);
+    color: var(--vtx-orange-600);
+}
+
+/* A Fazer / Neutro */
+.kpi-a-fazer, .kpi-neutro { border-left-color: var(--vtx-slate-400); }
+.kpi-a-fazer .kpi-icon, .kpi-neutro .kpi-icon {
+    background-color: var(--vtx-slate-100);
+    color: var(--vtx-slate-600);
+}
+
+/* Dark Mode Overrides para Ícones */
+[data-theme="dark"] .kpi-aguardando-aprovacao .kpi-icon { background-color: rgba(214, 158, 46, 0.15); color: var(--vtx-amber-400); }
+[data-theme="dark"] .kpi-aprovado .kpi-icon { background-color: rgba(56, 231, 79, 0.15); color: var(--vtx-neon-green-400); }
+[data-theme="dark"] .kpi-reprovado .kpi-icon { background-color: rgba(229, 62, 62, 0.15); color: var(--vtx-red-400); }
+[data-theme="dark"] .kpi-em-andamento .kpi-icon { background-color: rgba(0, 194, 255, 0.15); color: var(--vtx-cyan-400); }
+[data-theme="dark"] .kpi-pagamento-pendente .kpi-icon { background-color: rgba(221, 107, 32, 0.15); color: var(--vtx-orange-400); }

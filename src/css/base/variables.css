@@ -1,62 +1,196 @@
-/* css/base/variables.css */
+/*
+==============================================================================
+Módulo: Design Tokens (Variáveis CSS)
+Caminho: src/css/base/variables.css
+==============================================================================
+Este arquivo define os Design Tokens da VETTRYX Tech, incluindo a paleta de 
+cores oficial, escalas tonais completas, variáveis semânticas para uso em 
+componentes, status, workflows e temas (claro e escuro).
+==============================================================================
+*/
 
 :root {
-    /* ==========================================================
-       1. VETTRYX IDENTITY (Valores "Hardcoded" do seu PDF)
-       Se o cliente não tiver cor, o sistema usa estas.
-       ========================================================== */
-    --vtx-deep-blue: #023047;  /* PDF: Source 1 */
-    --vtx-neon-green: #39E74F; /* PDF: Source 2 */
-    --vtx-ice-white: #F0F8FF;  /* PDF: Source 3 */
-    --vtx-cyan: #00C2FF;       /* PDF: Source 4 */
-    --vtx-slate: #64748B;      /* PDF: Source 6 */
+    /* =======================================================================
+        1. PALETA BASE VETTRYX E CORES HARMONIZADAS
+    ======================================================================= */
+    --vtx-deep-blue: #023047;
+    --vtx-neon-green: #39E74F;
+    --vtx-ice-white: #F0F8FF;
+    --vtx-cyan: #00C2FF;
+    --vtx-slate: #64748B;
+    
+    /* Cores Quentes Harmonizadas para Status/Workflow */
+    --vtx-red: #E53E3E;    /* Danger/Reprovado */
+    --vtx-amber: #D69E2E;  /* Warning/Aguardando */
+    --vtx-orange: #DD6B20; /* Atenção/Pagamento Pendente */
+    
     --vtx-white: #ffffff;
     --vtx-black: #121212;
 
-    /* ==========================================================
-       2. VARIÁVEIS SEMÂNTICAS (O que o seu CSS vai usar)
-       Lógica: "Use a cor do Cliente (--cli-). Se não tiver, use Vettryx".
-       ========================================================== */
-    
-    /* --- CORES DE MARCA --- */
-    --brand-primary: var(--cli-primary, var(--vtx-deep-blue));
-    --brand-secondary: var(--cli-secondary, var(--vtx-cyan));
-    --brand-accent: var(--cli-accent, var(--vtx-neon-green));
-    
-    /* --- STATUS (Padronizados) --- */
-    --status-success: var(--vtx-neon-green);
-    --status-warning: #FFEB3B; /* Mantido do seu original */
-    --status-danger: #F44336;  /* Mantido do seu original */
-    --status-info: var(--brand-secondary);
+    /* =======================================================================
+        2. ESCALAS TONAIS
+    ======================================================================= */
+    /* DEEP-BLUE */
+    --vtx-deep-blue-50: #e6f6fe;
+    --vtx-deep-blue-100: #cdedfd;
+    --vtx-deep-blue-200: #9bdcfc;
+    --vtx-deep-blue-300: #6acafa;
+    --vtx-deep-blue-400: #38b9f9;
+    --vtx-deep-blue-500: #013047; /* Cor base */
+    --vtx-deep-blue-600: #0475ad;
+    --vtx-deep-blue-700: #035d8a;
+    --vtx-deep-blue-800: #024363;
+    --vtx-deep-blue-900: #01283b;
 
-    /* --- TEXTOS --- */
-    --text-primary: var(--cli-text-main, var(--vtx-deep-blue));
-    --text-secondary: var(--cli-text-muted, var(--vtx-slate));
-    --text-inverse: var(--vtx-white);
+    /* NEON-GREEN */
+    --vtx-neon-green-50: #e8fcea;
+    --vtx-neon-green-100: #d1f9d6;
+    --vtx-neon-green-200: #a4f3ae;
+    --vtx-neon-green-300: #76ee85;
+    --vtx-neon-green-400: #49e85d;
+    --vtx-neon-green-500: #38e74f; /* Cor base */
+    --vtx-neon-green-600: #139f24;
+    --vtx-neon-green-700: #0f7f1d;
+    --vtx-neon-green-800: #0b5a15;
+    --vtx-neon-green-900: #06360c;
 
-    /* --- FUNDOS & SUPERFÍCIES --- */
-    --bg-body: var(--cli-bg-body, var(--vtx-ice-white));
+    /* ICE-WHITE */
+    --vtx-ice-white-50: #e5f3ff;
+    --vtx-ice-white-100: #cce7fe;
+    --vtx-ice-white-200: #99cfff;
+    --vtx-ice-white-300: #65b7ff;
+    --vtx-ice-white-400: #329fff;
+    --vtx-ice-white-500: #f0f8ff; /* Cor base */
+    --vtx-ice-white-600: #005fb2;
+    --vtx-ice-white-700: #004c8e;
+    --vtx-ice-white-800: #003666;
+    --vtx-ice-white-900: #00203d;
+
+    /* CYAN */
+    --vtx-cyan-50: #e5f8ff;
+    --vtx-cyan-100: #ccf2fe;
+    --vtx-cyan-200: #99e6ff;
+    --vtx-cyan-300: #65daff;
+    --vtx-cyan-400: #32ceff;
+    --vtx-cyan-500: #00c2ff; /* Cor base */
+    --vtx-cyan-600: #0087b2;
+    --vtx-cyan-700: #006c8e;
+    --vtx-cyan-800: #004d66;
+    --vtx-cyan-900: #002e3d;
+
+    /* SLATE */
+    --vtx-slate-50: #f0f1f4;
+    --vtx-slate-100: #e1e4e9;
+    --vtx-slate-200: #c3cad4;
+    --vtx-slate-300: #a6b0be;
+    --vtx-slate-400: #8896a9;
+    --vtx-slate-500: #63738b; /* Cor base */
+    --vtx-slate-600: #4a5667;
+    --vtx-slate-700: #3b4553;
+    --vtx-slate-800: #2a313b;
+    --vtx-slate-900: #191d23;
+
+    /* RED */
+    --vtx-red-50: #fbe8e8;
+    --vtx-red-100: #f8d2d2;
+    --vtx-red-200: #f2a5a5;
+    --vtx-red-300: #ec7878;
+    --vtx-red-400: #e64b4b;
+    --vtx-red-500: #e53d3d; /* Cor base */
+    --vtx-red-600: #9d1515;
+    --vtx-red-700: #7d1010;
+    --vtx-red-800: #590c0c;
+    --vtx-red-900: #350707;
+
+    /* AMBER */
+    --vtx-amber-50: #faf5e9;
+    --vtx-amber-100: #f6ebd4;
+    --vtx-amber-200: #eed7a9;
+    --vtx-amber-300: #e5c37f;
+    --vtx-amber-400: #ddaf54;
+    --vtx-amber-500: #d69e2d; /* Cor base */
+    --vtx-amber-600: #956d1d;
+    --vtx-amber-700: #775717;
+    --vtx-amber-800: #553e10;
+    --vtx-amber-900: #33250a;
+
+    /* ORANGE */
+    --vtx-orange-50: #fbf0e8;
+    --vtx-orange-100: #f8e1d2;
+    --vtx-orange-200: #f2c4a5;
+    --vtx-orange-300: #eba679;
+    --vtx-orange-400: #e5894c;
+    --vtx-orange-500: #dd6b1f; /* Cor base */
+    --vtx-orange-600: #9b4b16;
+    --vtx-orange-700: #7c3c12;
+    --vtx-orange-800: #592b0c;
+    --vtx-orange-900: #351907;
+
+    /* =======================================================================
+        3. VARIÁVEIS FUNCIONAIS (MARCA)
+    ======================================================================= */
+    --cor-brand-primary: var(--cli-primary, var(--vtx-deep-blue-500));
+    --cor-brand-secondary: var(--cli-secondary, var(--vtx-cyan-500));
+    --cor-accent: var(--cli-accent, var(--vtx-neon-green-500));
+    
+    /* =======================================================================
+        4. ESTADOS GENÉRICOS
+    ======================================================================= */
+    --cor-status-info: var(--vtx-cyan-500);
+    --cor-status-warning: var(--cli-warning, var(--vtx-amber-500));
+    --cor-status-danger: var(--cli-danger, var(--vtx-red-500));
+    --cor-status-success: var(--vtx-neon-green-500);
+    --cor-status-neutral: var(--vtx-slate-500);
+
+    /* =======================================================================
+        5. WORKFLOWS (SEMÂNTICA DE NEGÓCIO)
+    ======================================================================= */
+    --cor-aguardando-aprovacao: var(--vtx-amber-500);
+    --cor-aprovado: var(--vtx-neon-green-500);
+    --cor-reprovado: var(--vtx-red-500);
+    --cor-em-andamento: var(--vtx-cyan-500);
+    --cor-pagamento-pendente: var(--vtx-orange-500);
+    --cor-concluido: var(--vtx-neon-green-700);
+    --cor-ativo: var(--vtx-neon-green-500);
+    --cor-inativo: var(--vtx-slate-500);
+    --cor-cancelado: var(--vtx-red-600);
+    --cor-rejeitado: var(--vtx-red-500);
+    --cor-a-fazer: var(--vtx-slate-400);
+
+    /* =======================================================================
+        6. TEMA CLARO (Padrão)
+    ======================================================================= */
+    --bg-body: var(--cli-bg-body, var(--vtx-slate-50));
     --bg-card: var(--cli-bg-card, var(--vtx-white));
     --bg-header: var(--cli-bg-header, var(--vtx-white));
-    --bg-sidebar: var(--cli-bg-sidebar, var(--vtx-deep-blue));
-
-    /* --- BORDAS & EFEITOS --- */
-    --border-soft: #e4e7eb;
-    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --bg-sidebar: var(--cli-bg-sidebar, var(--vtx-deep-blue-500));
+    
+    --text-primary: var(--cli-text-main, var(--vtx-deep-blue-900));
+    --text-secondary: var(--cli-text-muted, var(--vtx-slate-600));
+    --text-inverse: var(--vtx-white);
+    
+    --borda-suave: var(--cli-border-soft, var(--vtx-slate-200));
+    --sombra-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --logo-filter: none;
 }
 
-/* --- TEMA ESCURO (Overrides) --- */
+/* ==========================================================================
+    7. TEMA ESCURO (Overrides)
+ ========================================================================= */
 [data-theme="dark"] {
-    --bg-body: #0a1014;
-    --bg-card: #15202b;
-    --bg-header: #15202b;
-    --text-primary: #e4e7eb;
-    --text-secondary: #a0aec0;
-    --border-soft: #2c3e50;
-    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --bg-body: var(--cli-dark-bg-body, #0A1014);
+    --bg-card: var(--cli-dark-bg-card, #15202B);
+    --bg-header: var(--cli-dark-bg-header, #15202B); 
+    --bg-sidebar: var(--cli-dark-bg-sidebar, #15202B);
     
-    /* No tema escuro, a primária precisa brilhar mais, usamos o Ciano ou a cor do cliente */
-    --brand-primary: var(--cli-dark-primary, var(--vtx-cyan)); 
+    --text-primary: var(--cli-dark-text-main, #E4E7EB);
+    --text-secondary: var(--cli-dark-text-muted, #A0AEC0);
+    
+    --borda-suave: var(--cli-dark-border-soft, #2C3E50);
+    --sombra-card: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    
+    /* Cores de Marca adaptadas para o Dark Mode (Exemplo: Ciano brilha mais no escuro) */
+    --cor-brand-primary: var(--cli-dark-primary, var(--vtx-cyan-500)); 
+    
     --logo-filter: brightness(0) invert(1);
 }

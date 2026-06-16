@@ -1,0 +1,49 @@
+/*
+==============================================================================
+Módulo: Cartões (Cards)
+Caminho: src/css/components/cards.css
+==============================================================================
+Estilos genéricos para cartões e painéis.
+==============================================================================
+*/
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--borda-suave);
+    border-radius: 12px;
+    box-shadow: var(--sombra-card);
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--borda-suave);
+    padding-bottom: 0.8rem;
+}
+
+.card-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.card-body {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.card-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--borda-suave);
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}

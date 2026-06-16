@@ -1,0 +1,146 @@
+/*
+==============================================================================
+Módulo: Badges (Indicadores Visuais)
+Caminho: src/css/components/badges.css
+==============================================================================
+Define o estilo dos badges utilizados em tabelas, listas e detalhes.
+Segue o padrão semântico baseado em workflow definido em variables.css.
+==============================================================================
+*/
+
+/* ==========================================================================
+   BASE
+========================================================================== */
+[class^="badge-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 20px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   WORKFLOW (SEMÂNTICA DE NEGÓCIO)
+========================================================================== */
+
+/* Aguardando aprovação / Pendente */
+.badge-aguardando-aprovacao,
+.badge-pendente {
+    background-color: var(--vtx-amber-50);
+    color: var(--vtx-amber-700);
+    border: 1px solid var(--vtx-amber-200);
+}
+
+/* Aprovado / Concluído / Sucesso */
+.badge-aprovado,
+.badge-concluido,
+.badge-sucesso {
+    background-color: var(--vtx-neon-green-50);
+    color: var(--vtx-neon-green-800);
+    border: 1px solid var(--vtx-neon-green-200);
+}
+
+/* Reprovado / Cancelado / Rejeitado / Danger */
+.badge-reprovado,
+.badge-cancelado,
+.badge-rejeitado,
+.badge-danger {
+    background-color: var(--vtx-red-50);
+    color: var(--vtx-red-700);
+    border: 1px solid var(--vtx-red-200);
+}
+
+/* Em andamento / Info */
+.badge-em-andamento,
+.badge-info {
+    background-color: var(--vtx-cyan-50);
+    color: var(--vtx-cyan-700);
+    border: 1px solid var(--vtx-cyan-200);
+}
+
+/* Pagamento pendente / Atenção */
+.badge-pagamento-pendente,
+.badge-atencao {
+    background-color: var(--vtx-orange-50);
+    color: var(--vtx-orange-700);
+    border: 1px solid var(--vtx-orange-200);
+}
+
+/* A Fazer */
+.badge-a-fazer {
+    background-color: var(--vtx-slate-50);
+    color: var(--vtx-slate-700);
+    border: 1px solid var(--vtx-slate-200);
+}
+
+/* ==========================================================================
+   ESTADOS AUXILIARES
+========================================================================== */
+
+/* Ativo */
+.badge-ativo {
+    background-color: var(--vtx-neon-green-50);
+    color: var(--vtx-neon-green-800);
+}
+
+/* Inativo */
+.badge-inativo {
+    background-color: var(--vtx-slate-100);
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   TEMA ESCURO
+========================================================================== */
+[data-theme="dark"] .badge-aguardando-aprovacao,
+[data-theme="dark"] .badge-pendente {
+    background-color: rgba(214, 158, 46, 0.15); /* Amber com opacidade */
+    color: var(--vtx-amber-200);
+    border-color: rgba(214, 158, 46, 0.3);
+}
+
+[data-theme="dark"] .badge-aprovado,
+[data-theme="dark"] .badge-concluido,
+[data-theme="dark"] .badge-sucesso {
+    background-color: rgba(56, 231, 79, 0.15); /* Neon Green com opacidade */
+    color: var(--vtx-neon-green-200);
+    border-color: rgba(56, 231, 79, 0.3);
+}
+
+[data-theme="dark"] .badge-reprovado,
+[data-theme="dark"] .badge-cancelado,
+[data-theme="dark"] .badge-rejeitado,
+[data-theme="dark"] .badge-danger {
+    background-color: rgba(229, 62, 62, 0.15); /* Red com opacidade */
+    color: var(--vtx-red-200);
+    border-color: rgba(229, 62, 62, 0.3);
+}
+
+[data-theme="dark"] .badge-em-andamento,
+[data-theme="dark"] .badge-info {
+    background-color: rgba(0, 194, 255, 0.15); /* Cyan com opacidade */
+    color: var(--vtx-cyan-200);
+    border-color: rgba(0, 194, 255, 0.3);
+}
+
+[data-theme="dark"] .badge-pagamento-pendente,
+[data-theme="dark"] .badge-atencao {
+    background-color: rgba(221, 107, 32, 0.15); /* Orange com opacidade */
+    color: var(--vtx-orange-200);
+    border-color: rgba(221, 107, 32, 0.3);
+}
+
+[data-theme="dark"] .badge-a-fazer {
+    background-color: rgba(100, 116, 139, 0.15); /* Slate com opacidade */
+    color: var(--vtx-slate-200);
+    border-color: rgba(100, 116, 139, 0.3);
+}
+
+[data-theme="dark"] .badge-inativo {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}

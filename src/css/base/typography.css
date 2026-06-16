@@ -1,34 +1,35 @@
-/* css/base/typography.css */
+/*
+==============================================================================
+Módulo: Tipografia
+Caminho: src/css/base/typography.css
+==============================================================================
+*/
 
-/* Importação Google Fonts (Montserrat + Fredoka) */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 body {
     font-family: 'Montserrat', sans-serif;
-    color: var(--text-primary);
-    -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Fredoka', sans-serif;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
-    font-weight: 600;
 }
 
 a {
     text-decoration: none;
-    color: var(--brand-secondary); /* Link agora usa a secundária (ciano/azul claro) */
+    color: var(--cor-brand-primary);
     transition: 0.2s;
 }
 
-/* Utilitários de Texto do seu styles.css original */
+/* Títulos de Páginas */
 .page-subtitle {
     text-align: center;
     text-transform: uppercase;
     font-weight: 600;
-    color: var(--brand-primary);
-    background-color: transparent;
+    color: var(--cor-brand-primary); 
+    background-color: transparent; 
     margin: 1.5rem 0;
     font-family: 'Fredoka', sans-serif;
     letter-spacing: 1px;
@@ -41,10 +42,15 @@ a {
     display: block;
     width: 60px;
     height: 3px;
-    background-color: var(--border-soft);
+    background-color: var(--borda-suave);
     margin: 10px auto 0;
     border-radius: 2px;
 }
+
+/* Utilitários de Texto */
+.text-brand { color: var(--cor-brand-primary) !important; }
+.text-danger { color: var(--cor-status-danger) !important; }
+.text-muted { color: var(--text-secondary) !important; }
 
 .accesskey {
     text-decoration: underline;
@@ -52,7 +58,3 @@ a {
     text-decoration-color: var(--text-secondary);
     cursor: help;
 }
-
-.text-brand { color: var(--brand-primary) !important; }
-.text-danger { color: var(--status-danger) !important; }
-.text-muted { color: var(--text-secondary) !important; }

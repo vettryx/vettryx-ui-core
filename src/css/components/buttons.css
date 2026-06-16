@@ -1,6 +1,18 @@
-/* src/css/components/buttons.css */
+/*
+==============================================================================
+Módulo: Botões (Buttons)
+Caminho: src/css/components/buttons.css
+==============================================================================
+Estilização do sistema de botões da aplicação. Define o estilo base, estados
+interativos, variações de formato (circular e quadrado), temas semânticos e
+integração com ícones Material Symbols. Utiliza as variáveis de cor e tema
+definidas em variables.css.
+==============================================================================
+*/
 
-/* --- GRUPOS DE BOTÕES --- */
+/* ==========================================================================
+   GRUPOS DE BOTÕES
+   ========================================================================== */
 .btn-group {
     display: flex;
     gap: 10px;
@@ -17,8 +29,10 @@
     margin-top: 15px;
 }
 
-/* --- ESTILO BASE PARA TODOS OS BOTÕES --- */
-[class*="btn-"] {
+/* ==========================================================================
+   BASE GLOBAL DE BOTÕES (SEM DEPENDER DE .btn)
+   ========================================================================== */
+[class^="btn-"], .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -26,139 +40,222 @@
     border-radius: 6px;
     padding: 10px 20px;
     cursor: pointer;
+    text-decoration: none;
     font-family: 'Fredoka', sans-serif;
     font-size: 16px;
     font-weight: 500;
     text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    box-shadow: var(--shadow-card);
     line-height: 1;
     position: relative;
     z-index: 1;
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease,
+                filter 0.2s ease,
+                background-color 0.2s ease,
+                color 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-[class*="btn-"]:hover {
+/* ==========================================================================
+   ESTADOS INTERATIVOS
+   ========================================================================== */
+[class^="btn-"]:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    filter: brightness(1.1);
+    filter: brightness(1.08);
 }
 
-[class*="btn-"]:active {
+[class^="btn-"]:active {
     transform: translateY(0);
     box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
-[class*="btn-"]::before {
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
+[class^="btn-"]:focus-visible {
+    outline: 2px solid var(--cor-brand-primary);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   ÍCONES (Material Symbols via ::before)
+   ========================================================================== */
+[class^="btn-"]::before {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    display: inline-block;
     margin-right: 8px;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 24;
 }
 
-/* --- VARIAÇÕES DE FORMATO --- */
-.btn-circle {
-    width: 45px;
-    height: 45px;
-    padding: 0;
-    border-radius: 50%;
-    margin: 0 5px;
-}
-.btn-circle::before { margin-right: 0; }
-
+/* ==========================================================================
+   FORMATO
+   ========================================================================== */
+.btn-circle,
 .btn-square {
     width: 45px;
     height: 45px;
     padding: 0;
+}
+
+.btn-circle {
+    border-radius: 50%;
+}
+
+.btn-square {
     border-radius: 6px;
-    margin: 5px;
 }
-.btn-square::before { margin-right: 0; }
 
-/* --- CORES E TEMAS (Integrado ao novo Design System) --- */
+.btn-circle::before,
+.btn-square::before {
+    margin-right: 0;
+}
 
-/* 1. Primários / Ação (Usa a cor da Marca Principal do Cliente ou Vettryx) */
-.btn-save, .btn-confirm, .btn-new, .btn-dark {
-    background-color: var(--brand-primary);
+/* ==========================================================================
+   CORES (MAPEAMENTO RN PINTURAS -> VETTRYX TOKENS)
+   ========================================================================== */
+.btn-save,
+.btn-confirm,
+.btn-new,
+.btn-dark {
+    background-color: var(--cor-brand-primary);
     color: var(--text-inverse);
 }
 
-/* 2. Secundários / Aviso */
-.btn-edit, .btn-return, .btn-home, .btn-orange {
-    background-color: var(--status-warning);
-    color: #584c03; /* Contraste escuro para o fundo amarelo/laranja */
+.btn-edit, 
+.btn-return, 
+.btn-home, 
+.btn-orange {
+    background-color: var(--cor-status-warning);
+    color: var(--vtx-amber-900); /* Texto escuro para contraste no fundo amarelo/amber */
 }
 
-/* 3. Perigo / Cancelar */
-.btn-delete, .btn-cancel, .btn-close, .btn-exit {
-    background-color: var(--status-danger);
+.btn-delete, 
+.btn-cancel, 
+.btn-close, 
+.btn-exit {
+    background-color: var(--cor-status-danger);
     color: var(--text-inverse);
 }
 
-/* 4. Funcionais / Relatórios (Mantido o seu Roxo como destaque extra) */
-.btn-list, .btn-reports, .btn-purple, .btn-pdf, .btn-excel, .btn-reset, .btn-access, .btn-clear {
-    background-color: #5D3FD3; 
+.btn-clone,
+.btn-dashboard,
+.btn-download,
+.btn-list, 
+.btn-reports, 
+.btn-purple, 
+.btn-pdf, 
+.btn-excel,
+.btn-reset, 
+.btn-access, 
+.btn-clear {
+    background-color: var(--cor-accent);
     color: var(--text-inverse);
 }
 
-/* 5. Navegação (Paginação) */
-.btn-first, .btn-last, .btn-previous, .btn-next {
+/* ==========================================================================
+   BOTÕES DE NAVEGAÇÃO
+   ========================================================================== */
+.btn-first, 
+.btn-last, 
+.btn-previous, 
+.btn-next {
     background-color: var(--bg-card);
     color: var(--text-primary);
-    border: 1px solid var(--border-soft);
+    border: 1px solid var(--borda-suave);
 }
-.btn-first:hover, .btn-last:hover, .btn-previous:hover, .btn-next:hover {
-    background-color: var(--brand-primary);
+
+.btn-first:hover,
+.btn-last:hover,
+.btn-previous:hover,
+.btn-next:hover {
+    background-color: var(--cor-brand-primary);
     color: var(--text-inverse);
 }
 
-/* 6. Transparente */
+/* ==========================================================================
+   BOTÃO TRANSPARENTE
+   ========================================================================== */
 .btn-transparent {
     background-color: transparent;
-    color: var(--brand-primary);
+    color: var(--cor-brand-primary);
     box-shadow: none;
-    border: 1px solid var(--border-soft);
+    border: 1px solid var(--borda-suave);
 }
+
 .btn-transparent:hover {
     background-color: var(--bg-body);
 }
 
-/* 7. Desabilitado */
-.btn-disabled {
-    pointer-events: none;
+/* ==========================================================================
+   ESTADO DESABILITADO (REAL)
+   ========================================================================== */
+button[class^="btn-"]:disabled {
+    cursor: not-allowed;
     opacity: 0.5;
-    background-color: var(--border-soft);
-    color: var(--text-secondary);
+    box-shadow: none;
 }
 
-/* --- ÍCONES DE AÇÃO (Mapeamento) --- */
-.btn-home::before {content: "\f015";}
-.btn-first::before {content: "\f049";}
-.btn-last::before {content: "\f050";}
-.btn-previous::before {content: "\f048";}
-.btn-next::before {content: "\f051";}
-.btn-new::before { content: "\2b"; }
-.btn-list::before { content: "\f002"; }
-.btn-reports::before { content: "\f56c"; }
-.btn-save::before { content: "\f0c7"; }
-.btn-edit::before { content: "\f044"; }
-.btn-delete::before { content: "\f1f8"; }
-.btn-return::before { content: "\f060"; }
-.btn-confirm::before { content: "\f00c"; }
-.btn-cancel::before { content: "\f05e"; }
-.btn-close::before { content: "\f00d"; }
-.btn-clear::before { content: "\f55a"; }
-.btn-access::before { content: "\f2f6"; }
-.btn-exit::before { content: "\f2f5"; }
-.btn-pdf::before { content: "\f1c1"; }
-.btn-excel::before { content: "\f1c3"; }
-.btn-reset::before { content: "\f2f9"; }
+/* ==========================================================================
+   MAPEAMENTO DE ÍCONES (IDÊNTICO À RN PINTURAS)
+   ========================================================================== */
+.btn-access::before { content: "\ea77"; }       /* login */
+.btn-cancel::before { content: "\e14b"; }       /* block */
+.btn-clear::before { content: "\e14a"; }        /* backspace */
+.btn-clone::before { content: "\e14d"; }        /* content_copy */
+.btn-close::before { content: "\e5cd"; }        /* close */
+.btn-confirm::before { content: "\e5ca"; }      /* check */
+.btn-dashboard::before { content: "\e871"; }    /* dashboard */
+.btn-delete::before { content: "\e872"; }       /* delete */
+.btn-download::before { content: "\f090"; }     /* download */
+.btn-edit::before { content: "\e254"; }         /* edit */
+.btn-excel::before { content: "\f1be"; }        /* table_view */
+.btn-exit::before { content: "\e9ba"; }         /* logout */
+.btn-first::before { content: "\e5dc"; }        /* first_page */
+.btn-home::before { content: "\e88a"; }         /* home */
+.btn-last::before { content: "\e5dd"; }         /* last_page */
+.btn-list::before { content: "\e8b6"; }         /* search */
+.btn-new::before { content: "\e145"; }          /* add */
+.btn-next::before { content: "\e409"; }         /* navigate_next */
+.btn-pdf::before { content: "\e415"; }          /* picture_as_pdf */
+.btn-previous::before { content: "\e408"; }     /* navigate_before */
+.btn-reports::before { content: "\e26b"; }      /* bar_chart */
+.btn-reset::before { content: "\e5d5"; }        /* refresh */
+.btn-return::before { content: "\e5c4"; }       /* arrow_back */
+.btn-save::before { content: "\e161"; }         /* save */
+.btn-view-all::before { content: "\e8ef"; }     /* visibility (ver todos) */
 
-/* --- BOTÕES DOS APLICATIVOS (Links Rápidos) --- */
-.btn-address, .btn-budget, .btn-calendar, .btn-certification, .btn-certifier, 
-.btn-checks, .btn-class, .btn-company, .btn-contact, .btn-course, .btn-detail, 
-.btn-finance, .btn-invoice, .btn-invoice-dollar, .btn-package, .btn-student, 
-.btn-teacher, .btn-testCenter, .btn-trainingBlocks, .btn-version, .btn-voucher {
+/* ==========================================================================
+   BOTÕES DE APP (LINK STYLE)
+   ========================================================================== */
+.btn-address,
+.btn-apps,
+.btn-budget, 
+.btn-calendar, 
+.btn-certification, 
+.btn-certifier, 
+.btn-checks, 
+.btn-class, 
+.btn-company, 
+.btn-contact, 
+.btn-course, 
+.btn-detail, 
+.btn-finance, 
+.btn-invoice, 
+.btn-invoice-dollar, 
+.btn-package, 
+.btn-student, 
+.btn-teacher, 
+.btn-testCenter, 
+.btn-trainingBlocks, 
+.btn-version,
+.btn-view-all, 
+.btn-voucher {
     background-color: transparent;
     color: var(--text-primary);
     box-shadow: none;
@@ -166,40 +263,58 @@
     font-size: 14px;
     text-transform: none;
     justify-content: flex-start;
-    width: auto;
 }
 
-.btn-address:hover, .btn-budget:hover, .btn-calendar:hover, .btn-certification:hover, 
-.btn-certifier:hover, .btn-checks:hover, .btn-class:hover, .btn-company:hover, 
-.btn-contact:hover, .btn-course:hover, .btn-detail:hover, .btn-finance:hover, 
-.btn-invoice:hover, .btn-invoice-dollar:hover, .btn-package:hover, .btn-student:hover, 
-.btn-teacher:hover, .btn-testCenter:hover, .btn-trainingBlocks:hover, .btn-version:hover, 
+.btn-address:hover,
+.btn-apps:hover, 
+.btn-budget:hover, 
+.btn-calendar:hover, 
+.btn-certification:hover, 
+.btn-certifier:hover, 
+.btn-checks:hover, 
+.btn-class:hover, 
+.btn-company:hover, 
+.btn-contact:hover, 
+.btn-course:hover, 
+.btn-detail:hover, 
+.btn-finance:hover, 
+.btn-invoice:hover, 
+.btn-invoice-dollar:hover, 
+.btn-package:hover, 
+.btn-student:hover, 
+.btn-teacher:hover, 
+.btn-testCenter:hover, 
+.btn-trainingBlocks:hover, 
+.btn-version:hover,
+.btn-view-all:hover,
 .btn-voucher:hover {
-    color: var(--brand-primary);
-    background-color: rgba(0,0,0,0.02);
+    color: var(--cor-brand-primary);
+    background-color: rgba(0,0,0,0.03);
     transform: none;
-    box-shadow: none;
 }
 
-/* Ícones Específicos dos Apps */
-.btn-address::before {content: "\f5a0";}
-.btn-budget::before {content: "\f15c";}
-.btn-calendar::before {content: "\f073";}
-.btn-certification::before {content: "\f0a3";}
-.btn-certifier::before {content: "\f4fc";}
-.btn-checks::before {content: "\f058";}
-.btn-class::before {content: "\f0c0";}
-.btn-company::before {content: "\f1ad";}
-.btn-contact::before {content: "\f2b9";}
-.btn-course::before {content: "\f02d";}
-.btn-detail::before {content: "\f05a";}
-.btn-finance::before {content: "\f555";}
-.btn-invoice::before {content: "\f570";}
-.btn-invoice-dollar::before {content: "\f571";}
-.btn-package::before {content: "\f187";}
-.btn-student::before {content: "\f501";}
-.btn-teacher::before {content: "\f51c";}
-.btn-testCenter::before {content: "\f549";}
-.btn-trainingBlocks::before {content: "\e4e6";}
-.btn-version::before {content: "\f126";}
-.btn-voucher::before {content: "\f145";}
+/* ==========================================================================
+   ÍCONES DOS APPS
+   ========================================================================== */
+.btn-address::before { content: "\e0c8"; }          /* location_on */
+.btn-apps::before { content: "\e5c3"; }             /* apps */
+.btn-budget::before { content: "\f8b6"; }           /* request_quote */
+.btn-calendar::before { content: "\ebcc"; }         /* calendar_month */
+.btn-certification::before { content: "\e3af"; }    /* workspace_premium */
+.btn-certifier::before { content: "\e874"; }        /* how_to_reg */
+.btn-checks::before { content: "\e86c"; }           /* check_circle */
+.btn-class::before { content: "\e7ef"; }            /* group (turma/classe) */
+.btn-company::before { content: "\e0af"; }          /* business */
+.btn-contact::before { content: "\e0ba"; }          /* contacts */
+.btn-course::before { content: "\ea19"; }           /* menu_book */
+.btn-detail::before { content: "\e88e"; }           /* info */
+.btn-finance::before { content: "\ef63"; }          /* payments */
+.btn-invoice::before { content: "\ef6e"; }          /* receipt_long */
+.btn-invoice-dollar::before { content: "\f8f7"; }   /* price_check */
+.btn-package::before { content: "\e1a1"; }          /* inventory_2 */
+.btn-student::before { content: "\e80c"; }          /* school (aluno/formação) */
+.btn-teacher::before { content: "\eaf0"; }          /* co_present (professor) */
+.btn-testCenter::before { content: "\e7ee"; }       /* domain (centro de testes) */
+.btn-trainingBlocks::before { content: "\e574"; }   /* category (blocos/módulos) */
+.btn-version::before { content: "\eaf5"; }          /* commit (versão/branch) */
+.btn-voucher::before { content: "\e3f8"; }          /* confirmation_number (ticket/voucher) */
